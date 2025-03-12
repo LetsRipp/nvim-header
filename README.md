@@ -2,7 +2,7 @@
 generates a header for your file
 
 ### insert the following into your nvim-header.lua file for lazy.nvim
-'''lua
+```lua
 return{
     "LetsRipp/nvim-header",
     dependencies = {},
@@ -28,7 +28,7 @@ return{
     end
 }
 ```
-[comment]: #(TODO: add packer and vim config)
+[comment]: #TODO add packer and vim config
 
 ### TODO packer load
 ### TODO vim load
