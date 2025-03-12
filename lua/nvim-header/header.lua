@@ -91,7 +91,4 @@ end
 
 H.generate_header = generate_header
 
--- Keybindings
-vim.api.nvim_set_keymap("n", "<leader>mh", "<cmd>lua require'hobo.utils.header'.generate_header()<CR>", { noremap = true, silent = true })
-
 return H

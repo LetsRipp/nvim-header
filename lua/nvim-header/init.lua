@@ -6,16 +6,21 @@
 -- Date: 2025-03-12
 -- Repo: git@github.com:LetsRipp/nvim-header.git
 
-local config = require("nvim-header.config")
+require('nvim-header.config')
+require('nvim-header.header')
 
 local M = {}
 
--- loads plugin only when :HeaderInsert is run
 M.setup = function(user_opts)
-    config.setup(user_opts)
+    require('nvim-header.config').setup(user_opts)
+
     vim.api.nvim_create_user_command("HeaderInsert", function()
-        require("$HOME/.local/share/nvim/lazy/nvim-header/nvim-header.lua").generate_header()
+        require("nvim-header.header").generate_header()
     end, {})
+
+    vim.keymap.set('n', '<leader>mh', function()
+        require('nvim-header.header').generate_header()
+    end, { noremap = true, silent = true })
 end
 
 return M

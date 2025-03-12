@@ -46,9 +46,9 @@ M.options = {
 }
 
 -- setup function to allow user overrides
-M.setup = function(opts)
+M.setup = function(user_opts)
 
-    M.options = vim.tbl_extend("force", M.options, opts or {})
+    M.options = vim.tbl_extend("force", M.options, user_opts or {})
 
     if M.options.keymap then
         vim.api.nvim_set_keymap(
