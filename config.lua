@@ -1,8 +1,8 @@
 -- File: config.lua
 -- Author: hobo
 -- License: MIT
--- Description: This is probaly trash
--- Version: 0.0.2
+-- Description: This is trash code that would make a real programmer cry blood 🤮
+-- Version: 0.0.0
 -- Date: 2025-03-12
 -- Repo: git@github.com:LetsRipp/nvim-header.git
 
@@ -37,7 +37,7 @@ M.options = {
     file = vim.fn.expand("%:t"),
     author = get_author(),
     license = "MIT",
-    description = "This is probaly trash",
+    description = "This is trash code that would make a real programmer cry blood 🤮",
     version = "0.0.0",
     date_format = os.date("%Y-%m-%d"),
     repo = get_repo(),
