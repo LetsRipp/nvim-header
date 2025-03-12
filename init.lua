@@ -1,10 +1,10 @@
 -- File: init.lua
--- Author: LetsRipp
+-- Author: hobo
 -- License: MIT
--- Description: init file for lazy.nvim config
+-- Description: This is probaly trash
 -- Version: 0.0.2
 -- Date: 2025-03-12
--- URL: https://github.com/LetsRipp/nvim-header
+-- Repo: git@github.com:LetsRipp/nvim-header.git
 
 local config = require("nvim-header.config")
 

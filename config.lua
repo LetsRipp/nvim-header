@@ -4,7 +4,12 @@ local function get_repo()
 
     -- pulls git repo from git config
     local repo = vim.fn.system("git config remote.origin.url"):gsub("\n", "")
-    return (repo ~= "" and repo) or "https://github.com/userName/repoName"
+
+    if repo == "" then
+        repo = "git@github.com:userName/repoName.git"
+    end
+
+    return repo
 
 end
 
@@ -27,7 +32,7 @@ M.options = {
     description = "This is probaly trash",
     version = "0.0.0",
     date_format = os.date("%Y-%m-%d"),
-    url = "https://" .. get_repo(),
+    repo = get_repo(),
     keymap = "<leader>mh"
 
 }

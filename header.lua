@@ -1,10 +1,10 @@
 -- File: header.lua
--- Author: author_name
+-- Author: hobo
 -- License: MIT
--- Description: nvim extension that pulls info from git config and creates a header
+-- Description: This is probaly trash
 -- Version: 0.0.2
--- Date: 25-03-11
--- URL: https://github.com/some_username/some_repo/
+-- Date: 2025-03-12
+-- Repo: git@github.com:LetsRipp/nvim-header.git
 
 local config = require("nvim-header.config")
 
@@ -17,6 +17,7 @@ local function get_extension()
 
     -- declares the symbol variable
     local symbol = ""
+    local md = false
 
     -- checks if the file is a lua file...etc
     if filename == "lua" then
@@ -26,7 +27,8 @@ local function get_extension()
     elseif filename == "sh" then
         symbol = "#"
     elseif filename == "md" then
-        symbol = "[comment]: <>"
+        symbol = "[comment]: <> ("
+        md = true
     elseif filename == "txt" then
         symbol = "#"
     elseif filename == "yaml" then
@@ -42,7 +44,7 @@ local function get_extension()
     else
         symbol = "//"       -- default symbol
     end
-    return symbol
+    return symbol, md
 end
 
 -- generates the header
@@ -68,11 +70,19 @@ local function generate_header()
     local bufnr = vim.api.nvim_get_current_buf()
 
     -- gets the extension of the file
-    local symbol = get_extension()
+    local symbol, md = get_extension()
+    local md_concat = ")"
 
     -- iterates over the header and adds the symbol to the beginning of each line
-    for i, line in ipairs(header) do
-        header[i] = symbol .. " " .. line
+    -- if its a markdown file it adds ')' to the end of the comment line
+    if md == true then
+        for i, line in ipairs(header) do
+            header[i] = symbol .. "" ..line ..""..md_concat
+        end
+    else
+        for i, line in ipairs(header) do
+            header[i] = symbol .. " " .. line
+        end
     end
 
     -- sets the header to the current buffer
