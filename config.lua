@@ -2,7 +2,7 @@
 -- Author: hobo
 -- License: MIT
 -- Description: This is trash code that would make a real programmer cry blood 🤮
--- Version: 0.0.0
+-- Version: 0.0.3
 -- Date: 2025-03-12
 -- Repo: git@github.com:LetsRipp/nvim-header.git
 

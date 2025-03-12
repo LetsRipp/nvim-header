@@ -1,3 +1,10 @@
+[comment]: <> (File: README.md)
+[comment]: <> (Author: hobo)
+[comment]: <> (License: MIT)
+[comment]: <> (Description: This is trash code that would make a real programmer cry blood 🤮)
+[comment]: <> (Version: 0.0.3)
+[comment]: <> (Date: 2025-03-12)
+[comment]: <> (Repo: git@github.com:LetsRipp/nvim-header.git)
 
 ## nvim-header
 generates a header for your file pulling information from your local and global git config files
