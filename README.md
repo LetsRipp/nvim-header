@@ -69,4 +69,43 @@ return require('packer').startup(function(use)
     }
 end)
 ```
-### for vim
+### for vim-plug
+```vimrc
+" Start the plugin block
+call plug#begin('~/.vim/plugged')
+
+" Add the plugin with its dependencies and lazy loading
+Plug 'LetsRipp/nvim-header'
+Plug 'nvim-tree/nvim-web-devicons'
+
+" End the plugin block
+call plug#end()
+
+" Configuration for nvim-header
+augroup NvimHeaderConfig
+  autocmd!
+  autocmd FileType * lua require("nvim-header").setup({
+      -- **user defined fields**
+      -- keymap = "<leader>mh",                       default is <leader>mh
+      -- author = "name",                             default will pull from git config
+      -- license = "GPL-3.0"                          default is MIT
+      -- version = "1.0.0",                           default is 0.0.0
+      -- repo = "git@github.com:userName/repoName"    default will pull from git config 
+      -- date_format = os.date("%d-%m-%Y")            default is %Y-%m-%d or (2025-01-15) 
+      -- options are
+      -- %D(date in dd/mm/yy format)
+      -- %H:%M (hour:min)
+      -- %Y (year in yyyy format)
+      -- %d (day in dd format)
+      -- %m (month in mm format) 
+      -- %y (year in yy format)
+  })
+augroup END
+```
+#### then run 
+```
+:PlugInstall
+```
+!!! warning
+    I have not tested vim-plug or packer.nvim<br>
+    If they are broken, let me know, I will fix it
