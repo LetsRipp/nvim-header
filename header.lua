@@ -26,7 +26,7 @@ local function get_extension()
     elseif filename == "sh" then
         symbol = "#"
     elseif filename == "md" then
-        symbol = "#"
+        symbol = "[comment]: <>"
     elseif filename == "txt" then
         symbol = "#"
     elseif filename == "yaml" then
