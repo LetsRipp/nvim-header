@@ -6,6 +6,8 @@
 -- Date: 2025-03-12
 -- Repo: git@github.com:LetsRipp/nvim-header.git
 
+-- TODO: this breaks the whole system when lazy loaded 
+
 local config = require("nvim-header.config")
 
 local H = {}

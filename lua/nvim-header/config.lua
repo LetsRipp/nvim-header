@@ -6,6 +6,8 @@
 -- Date: 2025-03-12
 -- Repo: git@github.com:LetsRipp/nvim-header.git
 
+-- TODO: fix this, it breaks nvim when lazy loaded
+
 local M = {}
 
 local function get_repo()
