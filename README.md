@@ -4,15 +4,12 @@ generates a header for your file
 ### insert the following into your nvim-header.lua file for lazy.nvim
 '''lua
 return{
-
     "LetsRipp/nvim-header",
     dependencies = {},
     lazy = true,
     cmd = "HeaderInsert",
     config = function()
-
         require("nvim-header").setup({
-
             -- **user defined fields**
             -- keymap = "<leader>mh",               default is <leader>mh
             -- author = "name",                     default will  pull from git config
@@ -27,9 +24,7 @@ return{
                 -- %d (day in dd format)
                 -- %m (month in mm format) 
                 -- %y (year in yy format)
-
         })
     end
 }
-'''
 
