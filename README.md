@@ -1,7 +1,8 @@
 # nvim-header
-generates a header for your file
+generates a header for your file pulling information from your local and global git config files
+or with your custom options
 
-### insert the following into your nvim-header.lua file for lazy.nvim
+### for lazy.nvim
 ```lua
 return{
     "LetsRipp/nvim-header",
@@ -31,5 +32,5 @@ return{
 
 [comment]: <> (TODO: add packer and vim config)
 
-### TODO packer load
-### TODO vim load
+### for packer
+### for vim
