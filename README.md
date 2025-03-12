@@ -38,7 +38,9 @@ return{
 }
 ```
 
-[comment]: <> (TODO: add packer and vim config)
+>[!WARNING]    
+I HAVE NOT TESTED VIM-PLUG OR PACKER.NVIM<BR>
+IF THEY ARE BROKEN, LET ME KNOW, I WILL FIX IT
 
 ### for packer
 ```lua
@@ -106,6 +108,3 @@ augroup END
 ```
 :PlugInstall
 ```
-!!! warning
-    I have not tested vim-plug or packer.nvim<br>
-    If they are broken, let me know, I will fix it
