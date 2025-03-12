@@ -28,6 +28,7 @@ return{
     end
 }
 ```
+
 [comment]: #(TODO add packer and vim config)
 
 ### TODO packer load
