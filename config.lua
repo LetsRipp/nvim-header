@@ -1,3 +1,11 @@
+-- File: config.lua
+-- Author: hobo
+-- License: MIT
+-- Description: This is probaly trash
+-- Version: 0.0.2
+-- Date: 2025-03-12
+-- Repo: git@github.com:LetsRipp/nvim-header.git
+
 local M = {}
 
 local function get_repo()
