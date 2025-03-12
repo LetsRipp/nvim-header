@@ -7,7 +7,7 @@ or with your custom options
 ```lua
 return{
     "LetsRipp/nvim-header",
-    dependencies = {},
+    dependencies = {'nvim-tree/nvim-web-devicons'},
     lazy = true,
     cmd = "HeaderInsert",
     config = function()
