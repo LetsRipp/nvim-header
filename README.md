@@ -1,4 +1,4 @@
-# nvim-header
+## nvim-header
 generates a header for your file pulling information from your local and global git config files
 or with your custom options
 
