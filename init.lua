@@ -14,7 +14,7 @@ local M = {}
 M.setup = function(user_opts)
     config.setup(user_opts)
     vim.api.nvim_create_user_command("HeaderInsert", function()
-        require("nvim-header.header").generate_header()
+        require("header.lua").generate_header()
     end, {})
 end
 
