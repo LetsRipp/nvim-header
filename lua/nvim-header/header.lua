@@ -20,6 +20,7 @@ local function get_extension()
     -- declares the symbol variable
     local symbol = ""
     local md = false
+    local bash = false
 
     -- checks if the file is a lua file...etc
     if filename == "lua" then
@@ -28,6 +29,7 @@ local function get_extension()
         symbol = "#"
     elseif filename == "sh" then
         symbol = "#"
+        bash = true
     elseif filename == "md" then
         symbol = "[comment]: <> ("
         md = true
@@ -46,7 +48,7 @@ local function get_extension()
     else
         symbol = "//"       -- default symbol
     end
-    return symbol, md
+    return symbol, md, bash
 end
 
 -- generates the header
@@ -72,8 +74,9 @@ local function generate_header()
     local bufnr = vim.api.nvim_get_current_buf()
 
     -- gets the extension of the file
-    local symbol, md = get_extension()
+    local symbol, md, bash = get_extension()
     local md_concat = ")"
+    local bashFirstLine = "#!/bin/bash"
 
     -- iterates over the header and adds the symbol to the beginning of each line
     -- if its a markdown file it adds ')' to the end of the comment line
@@ -81,6 +84,8 @@ local function generate_header()
         for i, line in ipairs(header) do
             header[i] = symbol .. "" ..line ..""..md_concat
         end
+    elseif bash == true then
+        table.insert(header, 1, bashFirstLine)
     else
         for i, line in ipairs(header) do
             header[i] = symbol .. " " .. line
