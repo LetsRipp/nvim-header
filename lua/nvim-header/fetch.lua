@@ -1,4 +1,4 @@
--- File: config.lua
+-- File: fetch.lua
 -- Author: hobo
 -- License: MIT
 -- Description: This is trash code that would make a real programmer cry blood 🤮
@@ -8,7 +8,7 @@
 
 -- TODO: fix this, it breaks nvim when lazy loaded
 
-local M = {}
+local F = {}
 
 local function get_extension()
 
@@ -74,4 +74,4 @@ local function get_author()
 
 end
 
-return M
+return F
