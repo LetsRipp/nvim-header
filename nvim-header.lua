@@ -18,6 +18,7 @@ return {
             -- %y (year in yy format)
     },
     lazy = true,
+    cmd = HeaderInsert,
     keys = { 
         { '<leader>mh', '<cmd>HeaderInsert<cr>' },
     },
