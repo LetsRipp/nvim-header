@@ -15,7 +15,7 @@ local H = {}
 
 
 -- generates the header
-local function generate_header(opts)
+H.generate_header = function(opts)
 
     -- creates the header
     local header = {
@@ -55,7 +55,5 @@ local function generate_header(opts)
     -- sets the header to the current buffer
     vim.api.nvim_buf_set_lines(bufnr, 0, 0, false, header)
 end
-
-H.generate_header = generate_header
 
 return H

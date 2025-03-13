@@ -10,7 +10,7 @@
 
 local F = {}
 
-local function get_extension()
+F.get_extension = function()
 
     -- gets the extension of the file
     local filename = vim.fn.expand('%:e')
@@ -50,7 +50,7 @@ local function get_extension()
 end
 
 
-local function get_repo()
+F.get_repo = function()
 
     -- pulls git repo from git config
     local repo = vim.fn.system('git config remote.origin.url'):gsub('\n', '')
@@ -63,7 +63,7 @@ local function get_repo()
 
 end
 
-local function get_author()
+F.get_author = function()
 
     -- pulls author from git config
     local author = vim.fn.system('git config global user.name'):gsub('\n', '')

@@ -11,10 +11,10 @@
 
 local M = {}
 
-local header = require('nvim-header.header')
-local fetch = require('nvim-header.fetch')
-
 M.setup = function(opts)
+
+    local fetch = require('nvim-header.fetch')
+    local header = require('nvim-header.header')
 
     -- default options
     M.options = vim.tbl_deep_extend('force', {
@@ -44,7 +44,7 @@ M.setup = function(opts)
         { noremap = true, silent = true }
         )
     end
- 
+
 end
 
 return M
