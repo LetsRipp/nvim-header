@@ -6,7 +6,8 @@
 -- Date: 2025-03-12
 -- Repo: git@github.com:LetsRipp/nvim-header.git
 
--- TODO: fix this, it breaks nvim when lazy loaded
+-- TODO: the new error is header.lua line 28: attemt to concatenate 
+-- field: date, a nill value 
 
 local F = {}
 

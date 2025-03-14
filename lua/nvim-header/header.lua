@@ -6,29 +6,27 @@
 -- Date: 2025-03-12
 -- Repo: git@github.com:LetsRipp/nvim-header.git
 
--- TODO: this breaks the whole system when lazy loaded 
+-- TODO: the new error is header.lua line 28: attemt to concatenate 
+-- field: date, a nill value 
 
 local fetch = require('nvim-header.fetch')
 local init = require('nvim-header.init')
 
 local H = {}
 
-
 -- generates the header
-H.generate_header = function(opts)
+function H.generate_header(opts)
 
     -- creates the header
     local header = {
-
-        'File: ' .. opts.author,
+        'File: ' .. opts.file,
         'Author: ' .. opts.author,
         'License: ' .. opts.license,
         'Description: ' .. opts.description,
         'Version: ' .. opts.version,
-        'Created: ' .. opts.date,
-        'URL: ' .. opts.url  }
-
-    vim.api.nvim_put(header, 'l', true, true)
+        'Created: ' .. opts.date_format,
+        'URL: ' .. opts.repo
+    }
 
     -- gets the current buffer
     local bufnr = vim.api.nvim_get_current_buf()
@@ -42,10 +40,15 @@ H.generate_header = function(opts)
     -- if its a markdown file it adds ')' to the end of the comment line
     if md == true then
         for i, line in ipairs(header) do
-            header[i] = symbol .. '' ..line ..''..md_concat
+            header[i] = symbol .. '' .. line .. '' .. md_concat
         end
     elseif bash == true then
         table.insert(header, 1, bashFirstLine)
+        -- Skip the shebang line
+        for i, line in ipairs(header) do
+            if i > 1 then                  header[i] = symbol .. ' ' .. line
+            end
+        end
     else
         for i, line in ipairs(header) do
             header[i] = symbol .. ' ' .. line
