@@ -12,6 +12,7 @@ local M = {}
 -- Setup function called by the plugin
 M.setup = function(opts)
     opts = opts or {}
+    local the_date = "%Y-%m-%d"
 
     -- Default options
     M.options = {
@@ -20,7 +21,7 @@ M.setup = function(opts)
         license = "MIT",
         description = "This is trash code that would make a real programmer cry blood 🤮",
         version = "0.0.0",
-        date = "%Y-%m-%d",
+        date = the_date,
         repo = fetch.get_repo(),
         keymap = "<leader>mh"
     }
@@ -86,7 +87,7 @@ M.insert_header = function()
     end
 
     -- Add a blank line after the header
-    table.insert(formatted_header, " ")
+    table.insert(formatted_header, "")
 
     -- Get the current buffer
     local bufnr = vim.api.nvim_get_current_buf()
