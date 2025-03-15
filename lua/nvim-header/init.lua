@@ -33,6 +33,9 @@ M.setup = function(opts)
         keymap = "<leader>mh"
     }
 
+    --debugging
+    print(os.date(M.options.date))
+
     -- Override defaults with user options
     for k, v in pairs(opts) do
         M.options[k] = v
@@ -56,17 +59,22 @@ end
 
 -- Generate and insert the header
 M.insert_header = function()
+    -- Ensure we're using the correct date format
+    local date_format = M.options.date or "%Y-%d-%m"  -- Default to YYYY-DD-MM if not set
+    local formatted_date = os.date(date_format)
 
     -- Create the header content
     local header_content = {
-        'File: ' .. vim.fn.expand("%:t"),
-        'Author: ' .. M.options.author,
+        'File: ' .. vim.fn.expand("%:t"), 'Author: ' .. M.options.author,
         'License: ' .. M.options.license,
         'Description: ' .. M.options.description,
         'Version: ' .. M.options.version,
-        'Created: ' .. os.date(M.options.date),
+        'Created: ' .. formatted_date,
         'Repo: ' .. M.options.repo
     }
+
+    -- debugging 
+    print(os.date(M.options.date))
 
     -- Get the file type and comment symbols
     local symbol, md, bash = fetch.get_extension()
