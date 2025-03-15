@@ -11,6 +11,7 @@
 
 local F = {}
 
+-- Gets the comment symbol based on file extension
 F.get_extension = function()
 
     -- gets the extension of the file
@@ -34,9 +35,7 @@ F.get_extension = function()
         md = true
     elseif filename == 'txt' then
         symbol = '#'
-    elseif filename == 'yaml' then
-        symbol = '#'
-    elseif filename == 'yml' then
+    elseif filename == 'yaml' or filename == 'yml' then
         symbol = '#'
     elseif filename == 'toml' then
         symbol = '#'
@@ -64,15 +63,15 @@ F.get_repo = function()
 
 end
 
+-- Gets the author name from git config
 F.get_author = function()
-
     -- pulls author from git config
-    local author = vim.fn.system('git config global user.name'):gsub('\n', '')
+    local author = vim.fn.system('git config user.name'):gsub('\n', '')
     if author == '' then
         author = vim.fn.system('git config --global user.name'):gsub('\n', '')
     end
+    
     return (author ~= '' and author) or 'your_name'
-
 end
 
 return F

@@ -6,45 +6,93 @@
 -- Date: 2025-03-12
 -- Repo: git@github.com:LetsRipp/nvim-header.git
 
---- TODO: the new error is header.lua line 28: attemt to concatenate 
---- field: date, a nill value 
-
+local fetch = require('nvim-header.fetch')
 local M = {}
 
+-- Setup function called by the plugin
 M.setup = function(opts)
+    opts = opts or {}
 
-    local fetch = require('nvim-header.fetch')
-    local header = require('nvim-header.header')
-
-    -- default options
-    M.options = vim.tbl_deep_extend('force', {
-
-        file = vim.fn.expand("%:t"),
+    -- Default options
+    M.options = {
+        file = vim.fn.expand("%:t") or "Unknown file",
         author = fetch.get_author(),
         license = "MIT",
         description = "This is trash code that would make a real programmer cry blood 🤮",
         version = "0.0.0",
-        date_format = os.date("%Y-%m-%d"),
+        date = "%Y-%m-%d",
         repo = fetch.get_repo(),
         keymap = "<leader>mh"
+    }
 
-    }, opts or {})
+    -- Override defaults with user options
+    for k, v in pairs(opts) do
+        M.options[k] = v
+    end
 
-    -- create user command
-    vim.api.nvim_create_user_command("HeaderInsert", function()
-        header.generate_header(M.options)
-    end, {})
-
-    -- create keymap if user has set one
+    -- Create keymap if user has set one
     if M.options.keymap then
         vim.keymap.set(
-        'n',
-        M.options.keymap,
-        '<cmd>HeaderInsert<CR>',
-        { noremap = true, silent = true }
+            'n',
+            M.options.keymap,
+            '<cmd>HeaderInsert<CR>',
+            { noremap = true, silent = true, desc = "Insert Header" }
         )
     end
 
+    -- Create user command
+    vim.api.nvim_create_user_command("HeaderInsert", function()
+        M.insert_header()
+    end, {})
+end
+
+-- Generate and insert the header
+M.insert_header = function()
+    -- Get current date formatted according to user preference
+    local date = os.date(M.options.date_format)
+    
+    -- Create the header content
+    local header_content = {
+        'File: ' .. vim.fn.expand("%:t"),
+        'Author: ' .. M.options.author,
+        'License: ' .. M.options.license,
+        'Description: ' .. M.options.description,
+        'Version: ' .. M.options.version,
+        'Date: ' .. date,
+        'Repo: ' .. M.options.repo
+    }
+
+    -- Get the file type and comment symbols
+    local symbol, md, bash = fetch.get_extension()
+    local formatted_header = {}
+    
+    -- Format header based on file type
+    if md then
+        -- Markdown format
+        for _, line in ipairs(header_content) do
+            table.insert(formatted_header, symbol .. line .. ')')
+        end
+    elseif bash then
+        -- Bash format with shebang
+        table.insert(formatted_header, "#!/bin/bash")
+        for _, line in ipairs(header_content) do
+            table.insert(formatted_header, symbol .. ' ' .. line)
+        end
+    else
+        -- Default format
+        for _, line in ipairs(header_content) do
+            table.insert(formatted_header, symbol .. ' ' .. line)
+        end
+    end
+    
+    -- Add a blank line after the header
+    table.insert(formatted_header, symbol)
+    
+    -- Get the current buffer
+    local bufnr = vim.api.nvim_get_current_buf()
+    
+    -- Insert the header at the top of the file
+    vim.api.nvim_buf_set_lines(bufnr, 0, 0, false, formatted_header)
 end
 
 return M
