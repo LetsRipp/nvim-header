@@ -2,14 +2,6 @@
 -- Author: hobo
 -- License: MIT
 -- Description: This is trash code that would make a real programmer cry blood 🤮
--- Version: 0.0.0
--- Date: Sat 15 Mar 2025 02:21:23 PM EDT
--- Repo: git@github.com:userName/repoName.git
---
--- File: init.lua
--- Author: hobo
--- License: MIT
--- Description: This is trash code that would make a real programmer cry blood 🤮
 -- Version: 0.0.4
 -- Date: 2025-03-12
 -- Repo: git@github.com:LetsRipp/nvim-header.git
@@ -28,7 +20,7 @@ M.setup = function(opts)
         license = "MIT",
         description = "This is trash code that would make a real programmer cry blood 🤮",
         version = "0.0.0",
-        date = "%Y-%m-%d",
+        date = "%Y-%d-%m",
         repo = fetch.get_repo(),
         keymap = "<leader>mh"
     }
@@ -59,9 +51,6 @@ end
 
 -- Generate and insert the header
 M.insert_header = function()
-    -- Ensure we're using the correct date format
-    local date_format = M.options.date or "%Y-%d-%m"  -- Default to YYYY-DD-MM if not set
-    local formatted_date = os.date(date_format)
 
     -- Create the header content
     local header_content = {
@@ -69,7 +58,7 @@ M.insert_header = function()
         'License: ' .. M.options.license,
         'Description: ' .. M.options.description,
         'Version: ' .. M.options.version,
-        'Created: ' .. formatted_date,
+        'Created: ' .. os.date(M.options.date),
         'Repo: ' .. M.options.repo
     }
 

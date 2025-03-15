@@ -50,7 +50,7 @@ end
 F.get_repo = function()
 
     -- pulls git repo from git config
-    local repo = vim.fn.system('git remote get-url origin 2>/dev/null'):gsub('\n', '')
+    local repo = vim.fn.system('git remote get-url origin'):gsub('\n', '')
 
     -- print statement for debugging
     print('Using the function: ' .. F.get_repo())
