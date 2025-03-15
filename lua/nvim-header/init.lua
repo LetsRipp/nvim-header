@@ -2,7 +2,7 @@
 -- Author: hobo
 -- License: MIT
 -- Description: This is trash code that would make a real programmer cry blood 🤮
--- Version: 0.0.3
+-- Version: 0.0.4
 -- Date: 2025-03-12
 -- Repo: git@github.com:LetsRipp/nvim-header.git
 
@@ -15,7 +15,7 @@ M.setup = function(opts)
 
     -- Default options
     M.options = {
-        file = vim.fn.expand("%:t") or "Unknown file",
+        file = vim.fn.expand("%:t") ~= "" and vim.fn.expand("%:t") or "Unknown file",
         author = fetch.get_author(),
         license = "MIT",
         description = "This is trash code that would make a real programmer cry blood 🤮",
@@ -49,8 +49,8 @@ end
 -- Generate and insert the header
 M.insert_header = function()
     -- Get current date formatted according to user preference
-    local date = os.date(M.options.date_format)
-    
+    local date = os.date(M.options.date)
+
     -- Create the header content
     local header_content = {
         'File: ' .. vim.fn.expand("%:t"),
@@ -58,14 +58,14 @@ M.insert_header = function()
         'License: ' .. M.options.license,
         'Description: ' .. M.options.description,
         'Version: ' .. M.options.version,
-        'Date: ' .. date,
+        'Created: ' .. date,
         'Repo: ' .. M.options.repo
     }
 
     -- Get the file type and comment symbols
     local symbol, md, bash = fetch.get_extension()
     local formatted_header = {}
-    
+
     -- Format header based on file type
     if md then
         -- Markdown format
@@ -84,13 +84,13 @@ M.insert_header = function()
             table.insert(formatted_header, symbol .. ' ' .. line)
         end
     end
-    
+
     -- Add a blank line after the header
-    table.insert(formatted_header, symbol)
-    
+    table.insert(formatted_header, "")
+
     -- Get the current buffer
     local bufnr = vim.api.nvim_get_current_buf()
-    
+
     -- Insert the header at the top of the file
     vim.api.nvim_buf_set_lines(bufnr, 0, 0, false, formatted_header)
 end
