@@ -86,7 +86,7 @@ M.insert_header = function()
     end
 
     -- Add a blank line after the header
-    table.insert(formatted_header, "")
+    table.insert(formatted_header, " ")
 
     -- Get the current buffer
     local bufnr = vim.api.nvim_get_current_buf()
