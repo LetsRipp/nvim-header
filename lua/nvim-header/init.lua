@@ -49,8 +49,6 @@ end
 
 -- Generate and insert the header
 M.insert_header = function()
-    -- Get current date formatted according to user preference
-    local date = os.date(M.options.date)
 
     -- Create the header content
     local header_content = {
@@ -59,7 +57,7 @@ M.insert_header = function()
         'License: ' .. M.options.license,
         'Description: ' .. M.options.description,
         'Version: ' .. M.options.version,
-        'Created: ' .. date,
+        'Created: ' .. os.date(M.options.date),
         'Repo: ' .. M.options.repo
     }
 
