@@ -25,8 +25,6 @@ M.setup = function(opts)
         keymap = "<leader>mh"
     }
 
-    --debugging
-    print(os.date(M.options.date))
 
     -- Override defaults with user options
     for k, v in pairs(opts) do
@@ -61,9 +59,6 @@ M.insert_header = function()
         'Created: ' .. os.date(M.options.date),
         'Repo: ' .. M.options.repo
     }
-
-    -- debugging 
-    print(os.date(M.options.date))
 
     -- Get the file type and comment symbols
     local symbol, md, bash = fetch.get_extension()
