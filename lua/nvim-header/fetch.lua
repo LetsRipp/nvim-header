@@ -50,9 +50,10 @@ end
 F.get_repo = function()
 
     -- pulls git repo from git config
-    local repo = vim.fn.system('git config remote.origin.url'):gsub('\n', '')
+    local repo = vim.fn.system('git remote get-url origin'):gsub('\n', '')
 
     if repo == '' then
+
         repo = 'git@github.com:userName/repoName.git'
     end
 
@@ -67,7 +68,7 @@ F.get_author = function()
     if author == '' then
         author = vim.fn.system('git config --global user.name'):gsub('\n', '')
     end
-    
+
     return (author ~= '' and author) or 'your_name'
 end
 

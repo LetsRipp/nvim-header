@@ -28,7 +28,7 @@ M.setup = function(opts)
         license = "MIT",
         description = "This is trash code that would make a real programmer cry blood 🤮",
         version = "0.0.0",
-        date = "%Y-%d-%m",
+        date = "%Y-%m-%d",
         repo = fetch.get_repo(),
         keymap = "<leader>mh"
     }
