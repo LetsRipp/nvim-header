@@ -15,6 +15,10 @@
 
 `nvim-header` generates a header for your file by pulling information from your local and global git config files or with your custom options.
 
+>[!CAUTION]
+#### you are on a bleeding edge branch
+#### updates will be frequent and breaking
+
 ## Installation
 
 ### Using lazy.nvim
@@ -46,9 +50,10 @@ return {
         { '<leader>ut', '<cmd>HeaderUpdateTime<cr>' },
     },
 }
-> **Warning**
-> I have not tested vim-plug or packer.nvim. If they are broken, let me know, I will fix it.
-
+```
+>![Warning]
+I have not tested packer or plug installs
+If they are broken, let me know, I will fix them
 ### Using packer.nvim
 
 ```lua
@@ -122,7 +127,7 @@ After adding the configuration, run `:PlugInstall`.
 Please submit issues if found.
 
 ## TODO
-
+```
 1. Add ability to update header to current date for versioning.
 2. Add different formats.
 ```
