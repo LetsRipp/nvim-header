@@ -122,11 +122,11 @@ augroup END
 
 After adding the configuration, run `:PlugInstall`.
 
-## Issues
+### Issues
 
 Please submit issues if found.
 
-## TODO
+### To do list
 ```
 1. Add ability to update header to current date for versioning.
 2. Add different formats.
