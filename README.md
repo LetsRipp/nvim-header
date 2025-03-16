@@ -15,9 +15,9 @@
 
 `nvim-header` generates a header for your file by pulling information from your local and global git config files or with your custom options.
 
->[!WARNING]
-#### you are on a bleeding edge branch
-#### updates will be frequent and breaking
+> [!WARNING]
+> you are on a bleeding edge branch
+> updates will be frequent and breaking
 
 ## Installation
 
@@ -51,9 +51,9 @@ return {
     },
 }
 ```
->[!NOTE]
-I have not tested packer or plug installs
-If they are broken, let me know, I will fix them
+> [!NOTE]
+> I have not tested packer or plug installs
+> If they are broken, let me know, I will fix them
 ### Using packer.nvim
 
 ```lua
