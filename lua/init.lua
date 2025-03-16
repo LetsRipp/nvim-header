@@ -14,7 +14,12 @@ local M = {}
 M.setup = function(user_opts)
     config.setup(user_opts)
     vim.api.nvim_create_user_command("HeaderInsert", function()
-        require("$HOME/.local/share/nvim/lazy/nvim-header/nvim-header.lua").generate_header()
+        require("nvim-header.header").generate_header()
+    end, {})
+    
+    -- Create HeaderUpdateTime command
+    vim.api.nvim_create_user_command("HeaderUpdateTime", function()
+        require("nvim-header.header").update_time()
     end, {})
 end
 
