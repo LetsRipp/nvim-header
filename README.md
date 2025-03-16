@@ -1,6 +1,13 @@
+[comment]: <> (File: README.md)
+[comment]: <> (Author: hobo)
+[comment]: <> (License: MIT)
+[comment]: <> (Description: This is trash code that would make a real programmer cry blood 🤮)
+[comment]: <> (Version: 0.1.0)
+[comment]: <> (Date: 2025-03-16)
+[comment]: <> (Repo: git@github.com:LetsRipp/nvim-header.git)
 # nvim-header
 
-![nvim-header](https://img.shields.io/badge/nvim--header-v0.0.3-blue.svg)
+![nvim-header](https://img.shields.io/badge/nvim--header-v0.1.0-blue.svg)
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 ![Author: hobo](https://img.shields.io/badge/Author-hobo-green.svg)
 
