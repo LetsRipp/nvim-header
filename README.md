@@ -1,26 +1,25 @@
-[comment]: <> (File: README.md)
-[comment]: <> (Author: hobo)
-[comment]: <> (License: MIT)
-[comment]: <> (Description: This is trash code that would make a real programmer cry blood 🤮)
-[comment]: <> (Version: 0.0.3)
-[comment]: <> (Date: 2025-03-12)
-[comment]: <> (Repo: git@github.com:LetsRipp/nvim-header.git)
+# nvim-header
 
-Test
+![nvim-header](https://img.shields.io/badge/nvim--header-v0.0.3-blue.svg)
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
+![Author: hobo](https://img.shields.io/badge/Author-hobo-green.svg)
 
-## nvim-header
-generates a header for your file pulling information from your local and global git config files
-or with your custom options
+## Description
 
-### for lazy.nvim
+`nvim-header` generates a header for your file by pulling information from your local and global git config files or with your custom options.
+
+## Installation
+
+### Using lazy.nvim
+
 ```lua
 return {
     "LetsRipp/nvim-header",
-    dependencies= { },
+    dependencies = {},
     opts = {
         -- **user defined fields**
         -- keymap = "<leader>mh",                       default is <leader>mh
-        -- author = "name",                             default will  pull from git config
+        -- author = "name",                             default will pull from git config
         -- license = "GPL-3.0"                          default is MIT
         -- version = "1.0.0",                           default is 0.0.0
         -- repo = "git@github.com:userName/repoName"    default will pull from git config 
@@ -28,7 +27,7 @@ return {
             -- options are
             -- %D(date in dd/mm/yy format)
             -- %H:%M (hour:min)
-            -- %Y (year in yyyy format)
+-- %Y (year in yyyy format)
             -- %d (day in dd format)
             -- %m (month in mm format) 
             -- %y (year in yy format)
@@ -40,13 +39,11 @@ return {
         { '<leader>ut', '<cmd>HeaderUpdateTime<cr>' },
     },
 }
-```
+> **Warning**
+> I have not tested vim-plug or packer.nvim. If they are broken, let me know, I will fix it.
 
->[!WARNING]    
-I HAVE NOT TESTED VIM-PLUG OR PACKER.NVIM<BR>
-IF THEY ARE BROKEN, LET ME KNOW, I WILL FIX IT
+### Using packer.nvim
 
-### for packer
 ```lua
 return require('packer').startup(function(use)
     use {
@@ -75,8 +72,10 @@ return require('packer').startup(function(use)
     }
 end)
 ```
-### for vim-plug
-```vimrc
+
+### Using vim-plug
+
+```vim
 " Start the plugin block
 call plug#begin('~/.vim/plugged')
 
@@ -108,14 +107,17 @@ augroup NvimHeaderConfig
   })
 augroup END
 ```
-#### then run 
-```
-:PlugInstall
+
+After adding the configuration, run `:PlugInstall`.
+
+## Issues
+
+Please submit issues if found.
+
+## TODO
+
+1. Add ability to update header to current date for versioning.
+2. Add different formats.
 ```
 
-## Please submit issues if found
-
-## TODO list
-1) Add ability to update header to current date for versioning<BR>
-2) Add different formats
 
