@@ -53,7 +53,8 @@ F.get_repo = function()
     local repo = vim.fn.system('git remote get-url origin'):gsub('\n', '')
 
     if repo == '' then
-        repo = 'git@github.com:userName/repoName.git'
+        local userName = vim.fn.system('git config --global user.name'):gsub('\n', '')
+        repo = 'git@github.com:' .. userName .. '/projectName.git'
     end
 
     return repo
