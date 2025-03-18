@@ -50,11 +50,31 @@ end
 F.get_repo = function()
 
     -- pulls git repo from git config
-    local repo = vim.fn.system('git remote get-url origin'):gsub('\n', '')
+    local repo = ''
 
-    if repo == '' then
-        local userName = vim.fn.system('git config --global user.name'):gsub('\n', '')
-        repo = 'git@github.com:' .. userName .. '/projectName.git'
+    -- checks if file shares a directory with a path
+    local function dir_exists(path)
+        local stat = vim.loop.fs_stat(path)
+        return stat and stat.type == 'directory'
+    end
+
+    -- check for .git and sets the repo or ""
+    if dir_exists('.git') then
+        local remote = vim.fn.systemlist("git remote get-url origin")[1] or ""
+        if remote ~= "" then
+            repo = remote
+        end
+    end
+
+    -- if repo is empty, check for global git config and sets userName
+    if repo == "" then
+        local userName = vim.fn.systemlist('git config --global user.name')[1] or ""
+        -- if userName is not empty, set repo
+        if userName ~= "" then
+            repo = 'git@github.com:' .. userName .. '/projectName.git'
+        else
+            repo = 'git@github.com:userName/projectName.git'
+        end
     end
 
     return repo
