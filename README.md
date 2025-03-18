@@ -6,13 +6,14 @@
 [comment]: <> (Date: 2025-03-12)
 [comment]: <> (Repo: git@github.com:LetsRipp/nvim-header.git)
 
-Test
-
 ## nvim-header
+![nvim-header](https://img.shields.io/badge/nvim--header-v0.1.0-blue.svg)
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
+![Author: hobo](https://img.shields.io/badge/Author-hobo-green.svg)<BR>
 generates a header for your file pulling information from your local and global git config files
 or with your custom options
 
-### for lazy.nvim
+### for lazy.nvim 👍
 ```lua
 return{
     "LetsRipp/nvim-header",
@@ -41,10 +42,10 @@ return{
 ```
 
 >[!WARNING]    
-I HAVE NOT TESTED VIM-PLUG OR PACKER.NVIM<BR>
-IF THEY ARE BROKEN, LET ME KNOW, I WILL FIX IT
+I have not tested installation with packer or plug<BR>
+If they are broken, submit an issue and I will fix it
 
-### for packer
+### for packer ❓
 ```lua
 return require('packer').startup(function(use)
     use {
@@ -73,7 +74,7 @@ return require('packer').startup(function(use)
     }
 end)
 ```
-### for vim-plug
+### for vim-plug ❓
 ```vimrc
 " Start the plugin block
 call plug#begin('~/.vim/plugged')
@@ -110,3 +111,13 @@ augroup END
 ```
 :PlugInstall
 ```
+## 🚀 upcoming features
+
+- [ ] additional themes
+- [ ] versioning updating
+- [ ] add date modified
+- [ ] date modified updating
+
+## Requirements
+
+- Neovim 0.7+
