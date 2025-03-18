@@ -2,8 +2,9 @@
 -- Author: hobo
 -- License: MIT
 -- Description: This is trash code that would make a real programmer cry blood 🤮
--- Version: 0.0.3
--- Date: 2025-03-12
+-- Version: 0.0.4
+-- Created: 2025-03-12
+-- Last modified: 2025-03-18
 -- Repo: git@github.com:LetsRipp/nvim-header.git
 
 local F = {}
