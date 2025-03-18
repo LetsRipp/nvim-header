@@ -7,7 +7,7 @@
 [comment]: <> (Repo: git@github.com:LetsRipp/nvim-header.git)
 
 ## nvim-header
-![nvim-header](https://img.shields.io/badge/nvim--header-v0.1.0-blue.svg)
+![nvim-header](https://img.shields.io/badge/nvim--header-v0.0.4-blue.svg)
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 ![Author: hobo](https://img.shields.io/badge/Author-hobo-green.svg)<BR>
 generates a header for your file pulling information from your local and global git config files
