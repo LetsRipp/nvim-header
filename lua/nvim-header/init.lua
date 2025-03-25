@@ -58,7 +58,7 @@ M.insert_header = function()
         'Description: ' .. M.options.description,
         'Version: ' .. M.options.version,
         'Created: ' .. os.date(M.options.date),
-        'Last updated: ' .. os.date(M.options.date),
+        'Last modified: ' .. os.date(M.options.date),
         'Repo: ' .. M.options.repo
     }
 
