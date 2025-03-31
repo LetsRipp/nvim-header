@@ -4,7 +4,7 @@
 -- Description: This is trash code that would make a real programmer cry blood 🤮
 -- Version: 0.0.4
 -- Created: 2025-03-12
--- Last modified: 2025-03-12
+-- Last modified: 2025-03-31
 -- Repo: git@github.com:LetsRipp/nvim-header.git
 
 local fetch = require('nvim-header.fetch')
@@ -18,7 +18,7 @@ M.setup = function(opts)
     M.options = {
         file = vim.fn.expand("%:t") ~= "" and vim.fn.expand("%:t") or "Unknown file",
         author = fetch.get_author(),
-        license = "proprietery",
+        license = "proprietary",
         description = "This is trash code that would make a real programmer cry blood 🤮",
         version = "0.0.0",
         date = "%Y-%m-%d",
